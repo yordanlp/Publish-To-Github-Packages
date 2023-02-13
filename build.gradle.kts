@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.0.2"
 	id("io.spring.dependency-management") version "1.1.0"
+	id("maven-publish")
 }
 
 group = "com.harbourspace"
@@ -17,6 +18,20 @@ dependencies {
     implementation("org.jetbrains:annotations:23.0.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
+publishing {
+	repositories {
+		maven {
+			name = "GitHubPackages"
+			url = uri("https://maven.pkg.github.com/yordanlp/Publish-Java-To-Github-Packages")
+			credentials {
+				username = System.getenv("GITHUB_ACTOR")
+				password = System.getenv("GITHUB_TOKEN")
+			}
+		}
+	}
+}
+
 
 tasks.withType<Test> {
 	useJUnitPlatform()
