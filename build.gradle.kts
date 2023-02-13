@@ -23,7 +23,7 @@ publishing {
 	repositories {
 		maven {
 			name = "GitHubPackages"
-			url = uri("https://maven.pkg.github.com/yordanlp/Publish-Java-To-Github-Packages")
+			url = uri("https://maven.pkg.github.com/yordanlp/Publish-To-Github-Packages")
 			credentials {
 				username = System.getenv("GITHUB_ACTOR")
 				password = System.getenv("GITHUB_TOKEN")
